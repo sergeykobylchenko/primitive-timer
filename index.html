@@ -1,0 +1,30 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h1>It's <span id="minutes">0</span> minutes <span id="seconds">0</span> seconds from start!</h1>
+    <button>Click me to reset it!</button>
+<script>
+    let counterSec = document.querySelector("#seconds");
+    let counterMin = document.querySelector("#minutes");
+    let resetTime = document.querySelector("button");
+    clock = () => {
+        counterSec.innerText = parseInt(counterSec.innerText) + 1;
+        if (counterSec.innerText === "60") {
+            counterMin.innerText = parseInt(counterMin.innerText) + 1;
+            counterSec.innerText = 0;
+        }
+    }
+    setInterval(clock, 1000)
+
+    resetTime.addEventListener("click", () => {
+        counterSec.innerText = 0;
+        counterMin.innerText = 0;
+    });
+</script>
+</body>
+</html>
